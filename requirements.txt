@@ -1,0 +1,11 @@
+fastapi 
+uvicorn
+anthropic
+python-dotenv
+pandas 
+openpyxl
+python-docx
+PyPDF2
+aiofiles
+zipfile36
+python-multipart
