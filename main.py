@@ -253,7 +253,8 @@ Your answer should be extremely concise and exactly match what is required for t
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
 
-@app.get("/api/health")
+@app.get("/")
+# @app.get("/api/health")
 async def health_check():
     return {"status": "ok", "message": "API is running"}
 
