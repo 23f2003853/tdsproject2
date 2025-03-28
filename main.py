@@ -214,7 +214,7 @@ Your answer should be extremely concise and exactly match what is required for t
         # Use Claude to generate the answer
         message = client.messages.create(
             model="claude-3-7-sonnet-20250219",
-            max_tokens=20000,
+            max_tokens=3000,
             messages=[
                 {
                     "role": "user",
@@ -228,7 +228,7 @@ Your answer should be extremely concise and exactly match what is required for t
             ],
             thinking={
                 "type": "enabled",
-                "budget_tokens": 16000
+                "budget_tokens": 2000
             }
         )
         
