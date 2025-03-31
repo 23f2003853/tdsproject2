@@ -9,3 +9,7 @@ PyPDF2
 aiofiles
 zipfile36
 python-multipart
+pydantic
+pillow
+langchain-anthropic
+langchain-core
