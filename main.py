@@ -719,7 +719,7 @@ File Content:
 
 Your answer should be extremely concise and exactly match what is required for the assignment.
 """                    
-            llm_response = llm1.invoke([HumanMessage(content=question)])
+            llm_response = llm1.invoke([HumanMessage(content=prompt_for_llm)])
 
         # --- Process Final LLM Response ---
         if llm_response and hasattr(llm_response, 'content'):
