@@ -589,17 +589,6 @@ async def process_question_with_file(
                     f"User Question: {question}\n\n"
                     f"Context: An image file has been provided at the path: '{temp_file_path}'. "
                     f"""Please use the available tools to answer the question or perform the requested action regarding this image.
-                    You are an AI assistant helping a student with their IIT Madras Online Degree in Data Science assignment questions.
-                    The student needs the exact answer to enter in their graded assignment.
-                    Instructions:
-1. Provide ONLY the exact answer to the question, without any explanations or extra text.
-2. The answer should be ready to be directly entered into the assignment form.
-3. If the question asks for values from a CSV file or data, extract those specific values.
-4. If the answer is a number, provide just the number.
-5. If the answer is text, provide just the text.
-6. Do not include any explanations, citations, or your thought process.
-
-Your answer should be extremely concise and exactly match what is required for the assignment.
                     """
                     # Example guiding phrases (optional, LLM might infer):
                     # f" If the question is about the image content, use 'answer_image_question'."
@@ -715,6 +704,21 @@ File Content:
         else:
             # --- No File Provided ---
             print("No file provided. Processing question directly.")
+            prompt_for_llm = f"""
+            Question:
+            {question}
+            You are an AI assistant helping a student with their IIT Madras Online Degree in Data Science assignment questions.
+                    The student needs the exact answer to enter in their graded assignment.
+                    Instructions:
+1. Provide ONLY the exact answer to the question, without any explanations or extra text.
+2. The answer should be ready to be directly entered into the assignment form.
+3. If the question asks for values from a CSV file or data, extract those specific values.
+4. If the answer is a number, provide just the number.
+5. If the answer is text, provide just the text.
+6. Do not include any explanations, citations, or your thought process.
+
+Your answer should be extremely concise and exactly match what is required for the assignment.
+"""                    
             llm_response = llm1.invoke([HumanMessage(content=question)])
 
         # --- Process Final LLM Response ---
